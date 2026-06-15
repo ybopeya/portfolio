@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yohali Bopeya</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ramaraja&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Menu button -->
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Sidebar nav (links scroll to sections on this one page) -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <a href="#home">home</a>
+    <a href="#about">about me + skills</a>
+    <a href="#experience">experience + campus involvement</a>
+    <a href="#projects">projects</a>
+    <a href="#blog">blog</a>
+  </nav>
+
+  <!-- Click-anywhere-to-close overlay -->
+  <div class="scrim" id="scrim"></div>
+
+  <div class="page-wrapper">
+    <main>
+
+      <!-- ============ HOME ============ -->
+      <section id="home" class="section">
+        <h1><span class="auto-type"></span></h1>
+        <img src="assets/imgs/bambi.gif" alt="" class="home-img" />
+        <div id="quote" class="italicized">
+          <h2>we delight in the beauty of the butterfly, but rarely admit the
+            changes it has gone through to achieve that beauty.</h2>
+          <h2>— Maya Angelou</h2>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT + SKILLS ============ -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-title" data-reveal><h1>about me</h1></div>
+
+          <div class="about-text" data-reveal>
+            <h3>hello! i designed this website from scratch to show you who i am and what i can do. taking a tiny idea to a complete, full-scale project is one of the most satisfying parts of studying computer science. there's real value in sitting with confusion, analyzing code, and taking your time to craft something that's completely yours. currently, i work as a technical project management intern at synchrony financial, where the best part is supporting features end-to-end and watching that same process come to life. this is just the start — i hope to keep documenting my growth here so you can follow along. keep scrolling to learn more about my projects, skills, and experiences.</h3>
+          </div>
+
+          <div class="section-title" data-reveal style="margin-top:3.5rem"><h1>skills</h1></div>
+
+          <div class="skills-group" data-reveal>
+            <h2>Technical</h2>
+            <ul class="skill-tags">
+              <li>C / C++</li><li>Python</li><li>Java</li><li>HTML / CSS</li>
+              <li>JavaScript</li><li>React</li><li>SQL</li><li>Verilog</li>
+            </ul>
+          </div>
+
+          <div class="skills-group" data-reveal>
+            <h2>Tools</h2>
+            <ul class="skill-tags">
+              <li>Android Studio</li><li>VS Code</li><li>Colab</li><li>Git</li>
+              <li>GitHub</li><li>Make</li><li>HDL Simulators</li><li>GDB</li>
+              <li>Jupyter Notebook</li><li>Canva</li>
+            </ul>
+          </div>
+
+          <div class="skills-group" data-reveal>
+            <h2>Methods</h2>
+            <ul class="skill-tags">
+              <li>agile / scrum</li><li>Test-Driven Development</li>
+              <li>Object-Oriented Design</li><li>REST API Design</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+           <!-- ============ PROJECTS ============ -->
+           <section id="projects" class="section">
+            <div class="container">
+              <div class="section-title" data-reveal><h1>projects</h1></div>
+    
+              <!-- Template cards — swap copy + links for your real projects -->
+              <div class="card-grid">
+    
+                <div class="card-container" data-reveal>
+                  <div class="card--border"></div>
+                  <div class="card">
+                    <h2 class="role">personal site</h2>
+                    <p class="card-body">One or two lines on what it does and the problem it solves.</p>
+                    <div class="tech"><span>Python</span><span>React</span><span>SQL</span></div>
+                    <a href="https://github.com/ybopeya" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                  </div>
+                </div>
+    
+                <div class="card-container" data-reveal>
+                  <div class="card--border"></div>
+                  <div class="card">
+                    <h2 class="role">Project Title</h2>
+                    <p class="card-body">One or two lines on what it does and the problem it solves.</p>
+                    <div class="tech"><span>C++</span><span>Verilog</span></div>
+                    <a href="https://github.com/ybopeya" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                  </div>
+                </div>
+    
+                <div class="card-container" data-reveal>
+                  <div class="card--border"></div>
+                  <div class="card">
+                    <h2 class="role">Project Title</h2>
+                    <p class="card-body">One or two lines on what it does and the problem it solves.</p>
+                    <div class="tech"><span>Java</span><span>Android</span></div>
+                    <a href="https://github.com/ybopeya" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                  </div>
+                </div>
+    
+              </div>
+            </div>
+          </section>
+    
+      <!-- ============ EXPERIENCE ============ -->
+      <section id="experience" class="section">
+        <div class="container">
+          <div class="section-title" data-reveal><h1>experience &amp; campus involvement</h1></div>
+
+          <div class="card-grid">
+
+            <div class="card-container" data-reveal>
+              <div class="card--border"></div>
+              <div class="card" style="--card-bg:url('../assets/imgs/syf.png')">
+                <h2 class="role2">technical project management intern</h2>
+                <p class="company">synchrony financial emerging technology center</p>
+                <a href="https://linkedin.com/in/ybopeya" class="btn" target="_blank" rel="noopener noreferrer">Read more</a>
+              </div>
+            </div>
+
+            <div class="card-container" data-reveal>
+              <div class="card--border"></div>
+              <div class="card" style="--card-bg:url('../assets/imgs/research.JPG')">
+                <h2 class="role2">undergraduate research assistant</h2>
+                <p class="company">parasol robotics laboratory @ uiuc</p>
+                <a href="https://linkedin.com/in/ybopeya" class="btn" target="_blank" rel="noopener noreferrer">Read more</a>
+              </div>
+            </div>
+
+            <div class="card-container" data-reveal>
+              <div class="card--border"></div>
+              <div class="card" style="--card-bg:url('../assets/imgs/imsa.png')">
+                <h2 class="role2">computer science + x camp ta</h2>
+                <p class="company">illinois math &amp; science academy</p>
+                <a href="https://linkedin.com/in/ybopeya" class="btn" target="_blank" rel="noopener noreferrer">Read more</a>
+              </div>
+            </div>
+
+            <div class="card-container" data-reveal>
+              <div class="card--border"></div>
+              <div class="card" style="--card-bg:url('../assets/imgs/theta-tau.JPG')">
+                <h2 class="role2">technology chair &amp; family officer</h2>
+                <p class="company">kappa theta tau professional engineering fraternity</p>
+                <a href="https://linkedin.com/in/ybopeya" class="btn" target="_blank" rel="noopener noreferrer">Read more</a>
+              </div>
+            </div>
+
+            <div class="card-container" data-reveal>
+              <div class="card--border"></div>
+              <div class="card" style="--card-bg:url('../assets/imgs/nsbe.jpeg')">
+                <h2 class="role2">outreach committee &amp; volunteer</h2>
+                <p class="company">national society of black engineers @ uiuc</p>
+                <a href="https://linkedin.com/in/ybopeya" class="btn" target="_blank" rel="noopener noreferrer">Read more</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ BLOG ============ -->
+      <section id="blog" class="section">
+        <div class="container">
+          <div class="section-title" data-reveal><h1>blog</h1></div>
+
+          <p class="blog-intro" data-reveal>short essays on creativity, solitude, attention, and the quiet work of becoming — written mostly to figure out what i think. posts live on substack; here are the latest.
+          </p>
+
+          <!-- Posts are rendered here from the array at the bottom of this file -->
+          <div class="blog-list" id="blogList"></div>
+
+          <div class="blog-all" data-reveal>
+            <a href="https://thehumblebumblebee.substack.com" class="btn" target="_blank" rel="noopener noreferrer">View all on Substack</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer id="main-footer">
+      <div class="social-icons">
+        <a href="https://linkedin.com/in/ybopeya" target="_blank" rel="noopener noreferrer"><img src="assets/icons/link-black.png" alt="LinkedIn" /></a>
+        <a href="https://github.com/ybopeya" target="_blank" rel="noopener noreferrer"><img src="assets/icons/github.png" alt="GitHub" /></a>
+        <a href="mailto:ybopeya2@illinois.edu"><img src="assets/icons/email.png" alt="Email" /></a>
+        <a href="assets/documents/resume.pdf" download="yohali-bopeya-resume.pdf"><img src="assets/icons/resume.png" alt="Resume" /></a>
+      </div>
+      <p>&copy; 2026 Yohali Bopeya. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+  <script>
+    /* ---- Blog posts: add/edit entries here, no HTML needed ---- */
+    const SUBSTACK_URL = "https://thehumblebumblebee.substack.com";
+    const posts = [
+      {
+        title: "what is modern life doing to the way we think, feel, create, and connect?",
+        date: "June 2026",
+        blurb: "human habits have evolved in strange ways to adapt to the modern world. We have more access to information than ever before, but our attention spans are shorter than ever.",
+        url: SUBSTACK_URL + "/p/another-post"
+      },
+      {
+        title: "slow down",
+        date: "May 2026",
+        blurb: "i found this quote the other day by Maya Angelou, and I believe it is a testament to the feelings I’ve shared in this post:",
+        url: "https://open.substack.com/pub/thehumblebumblebee/p/slow-down?utm_campaign=post-expanded-share&utm_medium=web"
+      }
+    ];
+
+    const blogList = document.getElementById("blogList");
+    blogList.innerHTML = posts.map(p => `
+      <article class="post" data-reveal>
+        <h3>${p.title}</h3>
+        <p class="post-date">${p.date}</p>
+        <p class="post-blurb">${p.blurb}</p>
+        <a class="read-more" href="${p.url}" target="_blank" rel="noopener noreferrer">Read on Substack</a>
+      </article>
+    `).join("");
+
+    /* ---- Typed.js hero ---- */
+    new Typed(".auto-type", {
+      strings: ["hi, i'm yohali.", "welcome to my portfolio site!"],
+      typeSpeed: 100,
+      backSpeed: 25,
+      loop: true
+    });
+
+    /* ---- Sidebar open / close ---- */
+    const menuBtn = document.getElementById("menuBtn");
+    const sidebar = document.getElementById("sidebar");
+    const scrim   = document.getElementById("scrim");
+
+    function setMenu(open) {
+      sidebar.classList.toggle("open", open);
+      scrim.classList.toggle("show", open);
+      menuBtn.setAttribute("aria-expanded", open);
+      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    }
+    menuBtn.addEventListener("click", () => setMenu(!sidebar.classList.contains("open")));
+    scrim.addEventListener("click", () => setMenu(false));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+    // close the menu after a nav link is tapped
+    sidebar.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+
+    /* ---- Active-section highlight in the nav ---- */
+    const navLinks = [...sidebar.querySelectorAll("a")];
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute("href")));
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = "#" + entry.target.id;
+          navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === id));
+        }
+      });
+    }, { rootMargin: "-45% 0px -45% 0px" });
+    sections.forEach(s => s && navObserver.observe(s));
+
+    /* ---- Reveal-on-scroll (runs after blog cards exist) ---- */
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll("[data-reveal]").forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>

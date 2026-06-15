@@ -1,0 +1,437 @@
+/* =====================================================================
+   Yohali Bopeya — portfolio
+   Single-page stylesheet
+   Sections: 1.Tokens 2.Base 3.Type 4.Layout 5.Nav 6.Hero
+             7.About+Skills 8.Cards 9.Blog 10.Footer 11.Motion 12.Responsive
+   ===================================================================== */
+
+/* 1. TOKENS ----------------------------------------------------------- */
+:root {
+    --bg:          #e9e2d3;   /* page background          */
+    --surface:     #d1cbbc;   /* cards, sidebar           */
+    --ink:         #757165;   /* body text + borders      */
+    --ink-strong:  #4d4737;   /* emphasis / hover         */
+    --white:       #ffffff;
+  
+    --line: 2px solid var(--ink);
+  
+    --font-display: 'Ramaraja', serif;
+    --font-body:    'IBM Plex Mono', monospace;
+  
+    --container: 1100px;
+    --pad-x: clamp(1.25rem, 5vw, 4rem);
+  
+    --radius: 4px;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* 2. BASE ------------------------------------------------------------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  
+  html { scroll-behavior: smooth; }
+  
+  body {
+    text-transform: lowercase;
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  img { max-width: 100%; display: block; }
+  
+  a { color: inherit; }
+  
+  :focus-visible {
+    outline: 2px solid var(--ink-strong);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  
+  /* 3. TYPOGRAPHY ------------------------------------------------------- */
+  h1, h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+  }
+  h3, h4 {
+    font-family: var(--font-body);
+    font-weight: 400;
+    margin: 0;
+  }
+  
+  h1 { font-size: clamp(2rem, 4vw, 2.6rem); }
+  h2 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); }
+  h3 { font-size: 1.125rem; line-height: 1.7; }
+  h4 { font-size: 1rem; }
+  
+  .italicized { font-style: italic; }
+  
+  /* 4. LAYOUT ----------------------------------------------------------- */
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main { flex: 1; }
+  
+  .section {
+    scroll-margin-top: 2rem;            /* so anchors don't sit at the very edge */
+    padding: clamp(3rem, 7vw, 5.5rem) var(--pad-x);
+  }
+  
+  .container {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+  }
+  
+  /* Section title with the underline rule you were using */
+  .section-title {
+    border: var(--line);
+    padding: 0.7rem 1rem 0.4rem;   /* top  sides  bottom */
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .section-title h1 { margin: 0; padding: 0; line-height: 1; }
+  
+  /* 5. NAVIGATION ------------------------------------------------------- */
+  .menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 34px;
+    height: 28px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .menu-btn span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    margin: 6px 0;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+  }
+  /* hamburger → X when the sidebar is open */
+  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100vh;
+    background: var(--surface);
+    border-right: var(--line);
+    display: flex;
+    flex-direction: column;
+    padding-top: 90px;
+    transition: left 0.3s var(--ease);
+    z-index: 1000;
+  }
+  .sidebar.open { left: 0; }
+  
+  .sidebar a {
+    padding: 14px 26px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 1.05rem;
+    border-left: 3px solid transparent;
+    transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+  }
+  .sidebar a:hover { color: var(--ink-strong); }
+  .sidebar a.active {
+    color: var(--ink-strong);
+    border-left-color: var(--ink-strong);
+    background: rgba(0, 0, 0, 0.04);
+  }
+  
+  /* dim the page when the menu is open (click to close) */
+  .scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+    z-index: 999;
+  }
+  .scrim.show { opacity: 1; visibility: visible; }
+  
+  /* 6. HERO ------------------------------------------------------------- */
+  #home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+  }
+  #home h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    min-height: 1.2em;                  /* stops layout jump while typing */
+  }
+  /* blinking caret from typed.js */
+  .typed-cursor { font-weight: 400; color: var(--ink); }
+  
+  .home-img {
+    width: min(400px, 80%);
+    height: auto;
+    margin-inline: auto;
+    border-radius: var(--radius);
+  }
+  
+  #quote {
+    max-width: 640px;
+    margin-inline: auto;
+  }
+  #quote h2 {
+    font-style: italic;
+    color: var(--ink);
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    line-height: 1.5;
+  }
+  
+  /* 7. ABOUT + SKILLS --------------------------------------------------- */
+  .about-text {
+    max-width: 760px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .about-text h3 { font-weight: 400; }
+  
+  .skills-group { margin-top: 3rem; }
+  .skills-group + .skills-group { margin-top: 2.5rem; }
+  
+  .skills-group h2 {
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-strong);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .skill-tags li {
+    list-style: none;
+    border: 1px solid var(--ink);
+    background: var(--surface);
+    padding: 0.45rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  /* 8. CARDS (experience + projects) ----------------------------------- */
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;          /* this centers the last row */
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  
+  .card-container {
+    position: relative;
+    flex: 0 1 250px;                 
+    height: 290px;                   
+  }
+  
+  .card {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border: var(--line);
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s var(--ease);
+    z-index: 2;
+    padding: 1.5rem 1.25rem;   
+  }
+  
+  /* dashed offset border revealed on hover */
+  .card--border {
+    position: absolute;
+    inset: 0;
+    border: 2px dashed var(--ink);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease);
+    z-index: 1;
+  }
+  
+  /* background photo, set per-card via --card-bg inline */
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--card-bg);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease);
+    z-index: 0;
+    background-size: 85%;        /* was: cover  — lower % = smaller image */
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .card > * { position: relative; z-index: 1; }
+  
+  .card .role, .card .role2 { font-weight: 700; }
+  .card .company {
+    text-align: center;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    transition: opacity 0.3s var(--ease);
+
+  }
+  .card .card-body { font-size: 0.95rem; margin-top: 0.5rem; text-align: center; }
+  
+  /* push the button to the bottom of the card */
+  .card .btn { margin-top: auto; }
+  .btn {
+    align-self: flex-start;
+    display: inline-block;
+    border: 2px solid var(--ink);
+    background: var(--ink);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 0.55rem 1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  }
+  .btn:hover { background: var(--ink-strong); border-color: var(--ink-strong); }
+  
+  .card .tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .card .tech span {
+    font-size: 0.78rem;
+    border: 1px solid var(--ink);
+    padding: 0.2rem 0.5rem;
+  }
+  
+  /* hover effects only where a real pointer exists */
+  @media (hover: hover) {
+    .card-container:hover .card { transform: translate(-22px, -22px); }
+    .card-container:hover .card--border { opacity: 1; }
+    .card-container:hover .card::before { opacity: 1; }
+    .card-container:hover .role2,
+    .card-container:hover .company {
+        opacity: 0;
+    }
+  }
+  
+  /* 9. BLOG ------------------------------------------------------------- */
+  .blog-intro {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+  }
+  .blog-list {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 760px;
+    margin-inline: auto;
+  }
+  .post {
+    border: var(--line);
+    background: var(--surface);
+    padding: 1.5rem 1.75rem;
+    transition: transform 0.2s var(--ease);
+  }
+  .post:hover { transform: translateY(-4px); }
+  .post h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    text-align: left;
+  }
+  .post .post-date {
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-top: 0.25rem;
+  }
+  .post .post-blurb { margin: 0.75rem 0 1rem; }
+  .post a.read-more {
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 1px;
+    transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+  }
+  .post a.read-more:hover { color: var(--ink-strong); border-color: var(--ink-strong); }
+  .post a.read-more::after { content: " \2192"; }   /* → */
+  
+  .blog-all {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+  
+  /* 10. FOOTER ---------------------------------------------------------- */
+  #main-footer {
+    border-top: var(--line);
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 1.5rem var(--pad-x);
+  }
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 0.75rem;
+  }
+  .social-icons a { display: inline-flex; transition: transform 0.3s var(--ease); }
+  .social-icons a:hover { transform: translateY(-8px); }
+  .social-icons img { width: 32px; height: 32px; }
+  
+  /* 11. MOTION (reveal-on-scroll) -------------------------------------- */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  }
+  [data-reveal].in-view {
+    opacity: 1;
+    transform: none;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+    [data-reveal] { opacity: 1; transform: none; }
+  }
+  
+  /* 12. RESPONSIVE ------------------------------------------------------ */
+  @media (max-width: 600px) {
+    .card-container { height: auto; min-height: 320px; }
+    .menu-btn { top: 16px; left: 16px; }
+  }
